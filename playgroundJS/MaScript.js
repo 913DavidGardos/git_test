@@ -259,14 +259,89 @@ console.log(capitalize("bUNASZIUA"));
 const lastLetter = (s) => { return s.charAt(s.length - 1);};
 console.log(lastLetter("Marlfgkjergd"));
 
+// lets do some fizz buzz
+//
+//
+
+// 1 -> usernumber
+// multiples of three => Fizz
+// multiples of five => Buzz
+// for both => FizzBuzz
+
+//let userIn = parseInt(prompt("Enter a number for FizzBuzz problem"));
+let userIn = 1;
+const multipleOfThree = (x) => { return x%3 === 0 ? true : false };
+const multipleOfFive = (x) => { return x%5 === 0 ? true : false };
+const fizzBuzz = (x) => {
+	if(multipleOfThree(x) && multipleOfFive(x)){
+		return "FizzBuzz";
+	} else if (multipleOfFive(x)){
+		return "Buzz";
+	} else if (multipleOfThree(x)){
+		return "Fizz";
+	} else {
+		return x;
+	}
+};
+
+for(let i = 1; i <= userIn; i++){
+
+	console.log(fizzBuzz(i));
+}
 
 
+// arrays
+
+const arrayOF = ["jon", 1, true];
+arrayOF.forEach(element => {
+	console.log(element);
+});
+
+// cool array methods
 
 
+console.log(arrayOF.toString());
+console.log(arrayOF.at(1));
+console.log(arrayOF[1]);
+console.log(arrayOF.join(" padding "));
+console.log(arrayOF);
+console.log(arrayOF.pop());
+console.log(arrayOF);
+console.log(arrayOF.push("your M"));
+console.log(arrayOF);
+console.log(arrayOF.shift());
+console.log(arrayOF);
+console.log(arrayOF.unshift("Andrew"));
+
+console.log(arrayOF);
 
 
+const arrayComplex = [[1, [2], 1], [3, "pipo"], ["edu", 3, false], true];
+const newArraySimple = arrayComplex.flat().flat();
+console.log(newArraySimple);
 
 
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+//fruits.splice(2, 0, "lemon", "kiwi");
+//console.log(fruits);
+
+fruits.splice(2, 2, "lemon", "kiwi");
+console.log(fruits);
+
+
+const months = ["Jan", "Feb", "Mar", "Apr"];
+const spliced = months.toSpliced(0, 1);
+console.log(spliced);
+
+window.onload = () => {
+	const container = document.querySelector('#container');
+
+	const content = document.createElement('div');
+	content.classList.add('content');
+	content.textContent = 'This is the glorious text-content!';
+
+	container.appendChild(content);
+}
 
 
 
