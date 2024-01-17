@@ -1,35 +1,29 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-const COLORS = ["pink", "green", "blue", "yellow", "purple"];
-export default function App() {
-  const [backgroundColor, setBackgroundColor] = useState(COLORS[0]);
 
-  const onButtonClick = (color) => () => {
-    setBackgroundColor(color);
-  };
-  return (
-    <div className="App" 
-         style={
-          {
-            backgroundColor,
-          }
-         }>
-    {
-    COLORS.map((color) => (
-      <button type="button" key={
-      color
-      }
-      onClick={
-        onButtonClick(color)
-      }
-      className={
-        backgroundColor === color ? 'selected' : ''
-      }>
-    {color}
-    </button>
-))}
-  </div>
+function Clock(){
+  const[counter, setCounter]=useState(0);
+
+  useEffect( ()=>{
+    const key = setInterval( ()=>{
+    setCounter( count => count + 1)
+  }, 1000);
+    return () => {
+      clearInterval(key);
+    };
+  }, []);
+
+  return(
+    <p>{counter} seconds have passed.</p>
   );
 }
+
+function App() {
+  return (<Clock />);
+}
+
+
+
+export default App;
